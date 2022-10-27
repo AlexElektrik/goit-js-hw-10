@@ -18,3 +18,23 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+
+.icon-flag image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.country-list{
+  list-style: none;
+}
+
+.country-key{
+  font-weight: 500;
+}
+
+.country{
+font-weight: 500;
+font-size: 32px;
+}
