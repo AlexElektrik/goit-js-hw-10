@@ -1,6 +1,7 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
 import debounce from 'lodash.debounce';
+import fetchCountries from './JS/fetchCountries.js'
 
 const DEBOUNCE_DELAY = 300;
 
@@ -19,23 +20,12 @@ function onInputSearch(event){
         countryInfoEL.innerHTML = '';   
            return };
     console.log(country);
-    fetchCountries(country);
-}
-
-function fetchCountries() {
-    return fetch(`https://restcountries.com/v2/name/${country}?fields=name,capital,flags,languages,population`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error()
-            }
-            return response.json();
-        })
-        .then(data => {
+    fetchCountries(country).then(data => {
             filter(data)
         })
         .catch((data) => {
             Notiflix.Notify.failure("Oops, there is no country with that name")
-        });
+        });;
 };
 
 function filter(array) {
